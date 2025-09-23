@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-<img src="https://vignette.wikia.nocookie.net/caseclosed/images/8/80/Infobox_-_Conan_Edogawa.png/revision/latest/scale-to-width-down/2000?cb=20190205090116" alt="Conan Edogawa" width="60%"/>
+<img src="https://github.com/kimbuttowskii/CTF-WRITEUPS/issues/1#issue-3445498257" alt="Mafia" width="60%"/>
 </p>
 
 <h1 align="center">🕵️‍♂️ h4kim's Writeups </h1>
