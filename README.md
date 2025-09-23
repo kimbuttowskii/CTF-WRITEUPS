@@ -4,6 +4,10 @@
   <img src="https://img.shields.io/badge/Security-Learning-blue?style=for-the-badge">
 </p>
 
+<p align="center">
+<img src="https://vignette.wikia.nocookie.net/caseclosed/images/8/80/Infobox_-_Conan_Edogawa.png/revision/latest/scale-to-width-down/2000?cb=20190205090116" alt="Conan Edogawa" width="60%"/>
+</p>
+
 <h1 align="center">🕵️‍♂️ h4kim's Writeups </h1>
 <p align="center">
   A curated collection of my Capture The Flag (CTF) challenge solutions & writeups.  
