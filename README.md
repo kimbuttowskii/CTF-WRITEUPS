@@ -11,7 +11,7 @@
 
 <h1 align="center">🕵️‍♂️ h4kim's Writeups </h1>
 <p align="center">
-  A curated collection of my Capture The Flag (CTF) challenge solutions & writeups.  
+  A collection of my Capture The Flag (CTF) challenge solutions & writeups as a novice :) 
 </p>
 
 ---
