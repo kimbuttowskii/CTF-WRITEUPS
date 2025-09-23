@@ -5,8 +5,9 @@
 </p>
 
 <p align="center">
-<img src="https://github.com/kimbuttowskii/CTF-WRITEUPS/issues/1#issue-3445498257" alt="Mafia" width="60%"/>
+  <img src="https://github.com/user-attachments/assets/d782a4dd-9924-4d9b-bcdf-1fb802270e1d" alt="alex banner" width="500">
 </p>
+
 
 <h1 align="center">🕵️‍♂️ h4kim's Writeups </h1>
 <p align="center">
