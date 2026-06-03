@@ -1,0 +1,79 @@
+# NMAP Command List
+
+## Target Specification
+
+1. `nmap 192.168.10.1/24` (scan CIDR)
+2. `nmap -iL targetfile.txt` (scan target IPs in file)
+3. `nmap -sS 192.168.10.1` (TCP SYN port scan)
+4. `nmap -sT 192.168.10.1` (TCP connect port scan)
+5. `nmap -sU 192.168.10.1` (UDP port scan)
+6. `nmap -sA 192.168.10.1` (TCP ACK port scan)
+7. `nmap -sW 192.168.10.1` (TCP Window port scan)
+8. `nmap -sM 192.168.10.1` (TCP Maimon port scan)
+
+## Host Discovery
+
+1. `nmap 192.168.1.1/24 -sn` (Disable port scanning. Host discovery only)
+2. `nmap 192.168.1.1-5 -Pn` (Disable host discovery. Port scan only)
+3. `nmap 192.168.1.1-5 -PS22-25,80` (TCP SYN on specified ports. Port 80 by default)
+4. `nmap 192.168.1.1-5 -PA22-25,80` (TCP ACK discovery on specified ports. Port 80 by default)
+5. `nmap 192.168.1.1-5 -PU53` (UDP discovery on specified ports. Port 40125 by default)
+
+## Port Specification
+
+1. `nmap -p <specific port>` (Port scan for specified port)
+2. `nmap 192.168.1.1 -p 1-65535` (Port range scan)
+3. `nmap 192.168.1.1 -p U:53,T:21-50` (Scan multiple TCP and UDP ports)
+4. `nmap 192.168.1.1 -p-` (Scan all ports)
+5. `nmap 192.168.1.1 -F` (Fast port scan <100 ports>)
+6. `nmap 192.168.1.1 -top-ports 2000` (Scan the top specified number of ports)
+
+## Service and Version Detection
+
+1. `nmap 192.168.1.1 -sV` (Determine version and service on running ports)
+2. `nmap 192.168.1.1 -sV -version-intensity <0-9>` (Intensity level 0 to 9. Higher number increases accuracy)
+3. `nmap 192.168.1.1 -A` (Enable OS detection, version detection, script scanning, and traceroute)
+
+## OS Detection
+
+1. `nmap 192.168.1.1 -O` (Remote OS detection using TCP/IP stack fingerprinting)
+
+## Timing and Performance
+
+1. `nmap 192.168.1.1 -T<0-5>` (0-Paranoid IDS evasion, 1-Sneaky IDS evasion, 2-Polite and use low bandwidth, 3-Normal speed scan, 4-Aggressive scan, 5-Insane scan)
+
+## Timing and Performance Switches
+
+1. `-host-timeout <time>` (Give up on target after this duration)
+2. `-min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout <time>` (Specify probe round trip time)
+3. `-min-hostgroup/max-hostgroup <size>` (Parallel host scan group sizes)
+4. `-min-parallelism/max-parallelism <numprobes>` (Probe parallelization)
+5. `-max-retries <tries>` (Specify the maximum number of port scan probe retransmissions)
+6. `-min-rate <number>` (Send packets no slower than specified number per second)
+7. `-max-rate <number>` (Send packets no faster than specified number per second)
+
+## NSE Scripts
+
+1. `nmap 192.168.1.1 -sC` (Scan with default NSE scripts. Considered useful for discovery and safe)
+2. `nmap 192.168.1.1 --script default` (Scan with default NSE scripts. Considered useful for discovery and safe)
+
+## Firewall / IDS Evasion and Spoofing
+
+1. `nmap 192.168.1.1 -f` (Use tiny fragmented IP packets. Harder for packet filters)
+2. `nmap 192.168.1.1 --mtu 32` (Set your own offset size)
+3. `nmap -D 192.168.1.101,192.168.1.102,192.168.1.103,192.168.1.23 192.168.1.1` (Send scans from spoofed IPs)
+4. `nmap -D decoy-ip1,decoy-ip2,your-own-ip,decoy-ip3,decoy-ip4 remote-host-ip` (Above example explained)
+5. `nmap -S <domain1> <targetdomain>` (Scan target domain from specified domain (-e eth0 -Pn may be required)
+6. `nmap --proxies <http://192.168.1.1:8080>, <http://192.168.1.2:8080> 192.168.1.1` (Relay connections through HTTP/SOCKS4 proxies)
+7. `nmap --data-length 200 192.168.1.1` (Append random data to sent packets)
+
+## Example IDS Evasion Command
+
+`nmap -f -T0 -n -Pn --data-length 200 -D 192.168.1.101,192.168.1.102,192.168.1.103,192.168.1.23 192.168.1.1`
+
+## Other Helpful Commands
+
+1. `nmap -p80 -sV -oG - --open 192.168.1.1/24 | grep open` (Scan for web servers and grep to show which IPs are running web servers)
+2. `nmap -iR 10 -n -oX out.xml | grep "Nmap" | cut -d " " -f5 > live-hosts.txt` (Generate a list of the IPs of live hosts)
+3. `nmap -iR 10 -n -oX out2.xml | grep "Nmap" | cut -d " " -f5 >> live-hosts.txt` (Append IP to the list of live hosts)
+4. `grep " open " results.nmap | sed -r 's/ +/ /g' | sort | uniq -c | sort -rn | less` (Reverse sorted list of how often ports turn up)
