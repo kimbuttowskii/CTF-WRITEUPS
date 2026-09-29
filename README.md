@@ -9,7 +9,7 @@
 </p>
 
 
-<h1 align="center">🕵️‍♂️ h4kim's Writeups </h1>
+<h1 align="center">🕵️‍♂️ h4kim@kali:~$ </h1>
 <p align="center">
   A collection of my Capture The Flag (CTF) challenge solutions & writeups as a novice :) 
 </p>
