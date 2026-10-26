@@ -18,7 +18,7 @@
 
 ## 📂 Repository Overview
 This repository contains my documented solutions for various CTF challenges.  
-Each folder represents a specific CTF event or challenge category.
+Each folder represents a specific CTF event or challenge category. Its include other simple exercises other than CTF.
 
 ---
 
